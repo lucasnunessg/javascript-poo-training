@@ -1,12 +1,11 @@
 export type TipoConta = 'corrente' | 'poupança' | 'debito' | 'salario'
-export type Products = 'Livro' | 'Jornal' | 'Informática'
 
 export default class Conta {
- private saldo: number;
+protected titularidade: string;
+ protected saldo: number = 0;
  private tipo: TipoConta;
- private nConta: string;
  private agencia: string;
- private titularidade: string;
+ private nConta: string;
 
   constructor(
     titularidade: string,
@@ -26,6 +25,14 @@ export default class Conta {
     return this.saldo
   }
 
+  getAgencia(){
+    return this.agencia
+  }
+
+  getTipo(){
+    return this.tipo
+  }
+
   depositar(valor: number){
     if (valor <= 0){
         throw new Error('Valores negativos  não são válidos!')
@@ -34,6 +41,7 @@ export default class Conta {
   }
 
   transferir(contaDestino: Conta, valor: number) {
+
     if(contaDestino.nConta === this.nConta){
       throw new Error('Não é possível transferir para a mesma conta!')
     } 
