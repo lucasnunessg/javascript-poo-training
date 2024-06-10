@@ -1,11 +1,14 @@
 import Conta, { TipoConta } from "./Conta";
 
+
+
 export  class ContaPoupança extends Conta {
- 
-  rendimento: number = 0;
+  static quantityAccounts = 0;
+  private rendimento: number = 0.1;
 
   constructor(titularidade: string, agencia: string, nConta: string, tipo: TipoConta, saldo: number){
     super(titularidade, agencia, nConta, tipo, saldo);
+    ContaPoupança.quantityAccounts = ContaPoupança.quantityAccounts+ 1;
 
   }
 
@@ -16,16 +19,25 @@ export  class ContaPoupança extends Conta {
     super.sacar(valor);
   }
 
-  getRendimento(valor: number){
-    this.saldo *= (1 + this.rendimento)
+  calcularRendimento(){
+    const rendimento = this.saldo * this.rendimento;
+    this.depositar(rendimento); 
+    return rendimento; 
   }
-
-  
 }
-
 const newPoupança = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
+const newPoupança2 = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
+const newPoupança3 = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
+
+
 newPoupança.depositar(1000)
-newPoupança.sacar(2001)
+newPoupança2.depositar(1000)
+newPoupança3.depositar(1000)
+
+console.log(ContaPoupança.quantityAccounts);
+
+console.log("Rendimento", newPoupança.calcularRendimento());
 console.log(newPoupança)
+
 
 
