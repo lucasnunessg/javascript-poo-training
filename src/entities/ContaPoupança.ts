@@ -28,14 +28,16 @@ export  class ContaPoupança extends Conta {
 const newPoupança = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
 const newPoupança2 = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
 const newPoupança3 = new ContaPoupança('Lucas', '01239123', '0213', 'poupança', 1000)
+const poupançaJulia = new ContaPoupança('Julia trindade', '8370', '32131', 'poupança', 9000)
 
-
+poupançaJulia.depositar(2000)
+poupançaJulia.calcularRendimento()
 newPoupança.depositar(1000)
 newPoupança2.depositar(1000)
 newPoupança3.depositar(1000)
 
 console.log(ContaPoupança.quantityAccounts);
-
+console.log("Saldo da conta após depósito: ", poupançaJulia)
 console.log("Rendimento", newPoupança.calcularRendimento());
 console.log(newPoupança)
 
