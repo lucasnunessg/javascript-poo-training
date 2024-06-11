@@ -1,7 +1,7 @@
 {
 	"name": "backend",
 	"version": "1.0.0",
-	"main": "src/entities/ContaPoupança.ts",
+	"main": "src/main.ts",
 	"scripts": {
 		"start": "tsx .",
 		"test": "mocha -r tsx tests/**/**/*.test.ts"

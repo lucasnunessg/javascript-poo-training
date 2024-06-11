@@ -5,7 +5,7 @@ protected titularidade: string;
  protected saldo: number = 0;
  private tipo: TipoConta;
  private agencia: string;
- private nConta: string;
+ protected nConta: string;
 
   constructor(
     titularidade: string,
@@ -31,6 +31,10 @@ protected titularidade: string;
 
   getTipo(){
     return this.tipo
+  }
+
+  getNConta(){
+    return this.nConta
   }
 
   depositar(valor: number){
